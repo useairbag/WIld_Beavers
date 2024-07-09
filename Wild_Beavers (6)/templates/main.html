@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Beavers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% block content %}  
+    <div class="header">
+        <div class="header-main">
+            <h1 class = "header-main-title">Wild Beavers</h1>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип">
+        </div>
+        <div class="header-buttons">
+            <form action="/signup">
+                <button type="submit"><img src="{{ url_for('static', filename='images/register.jpg') }}" alt="Реєстрація"></button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="buttons-center">
+            <form action="/pop">
+                <button type="submit"><img src="{{ url_for('static', filename='images/1.jpg') }}" alt="pop"></button>
+            </form>
+            <form action="/jazz">
+                <button type="submit"><img src="{{ url_for('static', filename='images/2.jpg') }}" alt="jazz"></button>
+            </form>
+            <form action="/rock">
+                <button type="submit"><img src="{{ url_for('static', filename='images/3.jpg') }}" alt="rock"></button>
+            </form>
+            <form action="/classic">
+                <button type="submit"><img src="{{ url_for('static', filename='images/4.jpg') }}" alt="classic"></button>
+            </form>
+            <form action="/hiphop">
+                <button type="submit"><img src="{{ url_for('static', filename='images/5.jpg') }}" alt="hip-hop"></button>
+            </form>
+            <form action="/electronic">
+                <button type="submit"><img src="{{ url_for('static', filename='images/6.jpg') }}" alt="electronic"></button>
+            </form>
+        </div>
+    </div>
+    <div class="fixed-buttons">
+        <form action="/review">
+            <button type="submit"><img src="{{ url_for('static', filename='images/review.jpg') }}" alt="Відгуки"></button>
+        </form>
+        <form action="/saved_songs">
+            <button type="submit"><img src="{{ url_for('static', filename='images/saved_songs.jpg') }}" alt="Збережені"></button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

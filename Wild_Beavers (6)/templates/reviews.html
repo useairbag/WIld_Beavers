@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <h2 class="rate">Залиште свій відгук</h2>
+    <form method="POST" action="/submit_review" class="rev-form">
+        <label for="name">Ваше ім'я:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="review">Ваш відгук:</label><br>
+        <textarea id="review" name="review"></textarea><br><br>
+        <input type="submit" value="Submit" class="rev-btn">
+    </form>
+    <br>
+    <form action="/Wild_Beavers">
+        <button type="submit" class="rev-home">Повернутися на головну</button>
+    </form>
+{% endblock %}

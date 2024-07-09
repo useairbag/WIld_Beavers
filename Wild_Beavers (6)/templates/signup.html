@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign_log.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Sign Up</title>
+</head>
+<body class = "signup">
+    <form action="/Wild_Beavers">
+        <button class="home-reg" type="submit">Головна сторінка</button>
+    </form>
+    <h2>Реєстрація</h2>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="POST" action="/signup">
+        <label for="username">Ім'я</label><br>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="email">Пошта</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="password">Пароль</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Відправити" class = "send-btn">
+    </form>
+    <form action="/signup"></form>
+    <p class = "sign">Вже є акаунт?<a href="/login" class = "link-log"> Вхід</a></p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "classic.html" %}
+{% block content %}
+<body class = "pop">
+    <div class="container">
+      <header class="d-flex justify-content-center py-3">
+          <form action="/Wild_Beavers">
+              <button class="nav-item" type="submit">Головна сторінка</button>
+          </form>
+      </header> 
+      <h1 class="musical">Поп</h1>
+      <form method="GET" action="/pop" class="form-inline mb-4 search-form">
+          <input class="bar" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request.args.get('search', '') }}">
+      </form>
+{% endblock %}

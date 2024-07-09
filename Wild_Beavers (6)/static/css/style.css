@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+.musical {
+    text-align:center;
+    color: #ffffff;
+    margin: 0;
+}
+
+.class {
+    background-image: url('/static/images/classical_bg.png');
+}
+
+.hip {
+    background-image: url('/static/images/hip-hop_bg.png');   
+}
+
+.jazz {
+    background-image: url('/static/images/jazz_bg.png');
+}
+
+.elect {
+    background-image: url('/static/images/electro_bg.png');
+}
+
+.rock {
+    background-image: url('/static/images/rock_bg.png');
+}
+
+.pop {
+    background-image: url('/static/images/pop_bg.jpg');
+}
+
+.nav-item {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 5px;
+    background-color: #1496be;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px; 
+}
+
+.songs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items:center;
+}
+
+.song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #ffffff;
+}
+
+.song-info p {
+    font-weight: bold;
+    padding-top: 25px;
+    margin-bottom: 0;
+    color: #ffffff;
+}
+
+.song-buttons button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+audio {
+    margin-left: 10px;
+    margin-top:10px;
+    margin-bottom:-20px;
+}
+
+.play-button {
+    background-color: #1496be;
+    color: white;
+    margin-top: 0;
+    border-radius: 8px;
+    position: relative;
+}
+
+.save-button {
+    background-color: #1496be;
+    color: white;
+    margin-top: 0;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.b-save {
+    background-image: url('/static/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bar {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    padding-left: 10px;
+    border-radius: 20px;
+    opacity: 0.7;
+}
+.song-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.audio-player {
+    margin-bottom:0;
+}
+.song-item {
+    margin-bottom: 15px;
+}
+
+.song-info-s {
+    font-weight: bold;
+    padding-top: 30px;
+    margin-bottom: 0;
+    color: #ffffff;
+    text-align: center;
+}
+

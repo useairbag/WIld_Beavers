@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Збережені пісні</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class = "b-save">
+  <div class="container">
+    <header class="d-flex justify-content-center py-3">
+        <form action="/Wild_Beavers">
+            <button class="nav-item" type="submit">Головна сторінка</button>
+        </form>
+    </header>
+    <h1 class="musical">Збережені пісні</h1>
+    <div class="songs">
+        {% for song in songs %}
+            <div class="song-item" id="song-{{ song.id }}">
+                <div class="song-info-s">
+                    <p>{{ song.artist }} - {{ song.title }}</p>
+                </div>
+                <div class="song-buttons">
+                    <audio controls class="audio-player">
+                        <source src="{{ url_for('static', filename='songs/' ~ song.file) }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <button type="button" class="btn btn-danger delete-btn" data-song-id="{{ song.id }}">Видалити</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (confirm('Ви впевнені, що хочете видалити цю пісню?')) {
+                    const songId = this.getAttribute('data-song-id');
+                    // Simulate deletion by removing the song from the DOM
+                    const songElement = document.getElementById('song-' + songId);
+                    if (songElement) {
+                        songElement.remove();
+                    }
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>

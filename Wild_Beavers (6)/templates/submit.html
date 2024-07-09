@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <h3 class="user-rev">Відгуки користувачів</h3>
+    {% if reviews %}
+        <ul class="display">
+        {% for review in reviews %}
+            <li class="rev-list">
+                <strong>{{ review.name }}</strong>: {{ review.review }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ще немає жодного відгуку</p>
+    {% endif %}
+    <br>
+    <form action="/Wild_Beavers">
+        <button type="submit" class="rev-home">Повернутися на головну</button>
+    </form>
+{% endblock %}

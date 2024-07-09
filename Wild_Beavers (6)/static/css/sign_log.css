@@ -1,0 +1,60 @@
+body {
+    background-image: url('/static/background.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+
+h2 {
+    text-align: center;
+    padding-top: 120px;
+    color: #ffffff;
+}
+
+.signup {
+    text-align: center;
+    color: #ffffff;
+}
+
+.login {
+    text-align: center;
+    color: #ffffff;
+}
+
+.sign {
+    padding-top: 20px;
+    color: #ffffff;
+}
+
+.log {
+    padding-top: 20px;
+    color: #ffffff;
+}
+
+.link-sign {
+    color: #ffffff;
+}
+
+.link-log {
+    color: #ffffff;
+}
+
+.send-btn {
+    background-color: #1496be;
+    border: none;
+    color: #ffffff;
+}
+
+.home-reg {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 5px;
+    background-color: #1496be;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}

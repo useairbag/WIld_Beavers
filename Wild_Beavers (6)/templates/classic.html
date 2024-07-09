@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+{% block content %} 
+<body class = "class">
+  <div class="container">
+    <header class="d-flex justify-content-center py-3">
+        <form action="/Wild_Beavers">
+            <button class="nav-item" type="submit">Головна сторінка</button>
+        </form>
+    </header> 
+    <h1 class="musical">Класична музика</h1>
+    <form method="GET" action="/classic" class="form-inline mb-4 search-form">
+        <input class="bar" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request.args.get('search', '') }}">
+    </form>
+    {% endblock %}
+    <div class="songs">
+        {% for song in songs %}
+            <div class="song-info">
+                <p>{{ song.artist }} - {{ song.title }}</p>
+            </div>
+            <div class="song-buttons">
+                <audio controls class="audio-player">
+                    <source src="{{ url_for('static', filename='songs/' ~ song.file) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="play-button">Слухати</button>
+                <button class="save-button" data-artist="{{ song.artist }}" data-title="{{ song.title }}" data-file="{{ song.file }}">Зберегти</button>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    const playButtons = document.querySelectorAll('.play-button');
+
+    playButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const audioPlayer = this.previousElementSibling;
+            const currentlyPlayingButton = document.querySelector('.play-button.playing');
+
+            if (currentlyPlayingButton && currentlyPlayingButton !== this) {
+                const currentlyPlayingAudio = currentlyPlayingButton.previousElementSibling;
+                currentlyPlayingAudio.pause();
+                currentlyPlayingAudio.currentTime = 0;
+                currentlyPlayingButton.textContent = 'Слухати';
+                currentlyPlayingButton.classList.remove('playing');
+            }
+
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                this.textContent = 'Пауза';
+                this.classList.add('playing');
+            } else {
+                audioPlayer.pause();
+                this.textContent = 'Слухати';
+                this.classList.remove('playing');
+            }
+        });
+
+        const audioPlayer = button.previousElementSibling;
+        audioPlayer.addEventListener('ended', function() {
+            button.textContent = 'Слухати';
+            button.classList.remove('playing');
+        });
+    });
+
+    const saveButtons = document.querySelectorAll('.save-button');
+    saveButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const songData = {
+                artist: this.getAttribute('data-artist'),
+                title: this.getAttribute('data-title'),
+                file: this.getAttribute('data-file')
+            };
+
+            fetch('/save_song', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(songData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+  </script>
+</body>
+</html>
